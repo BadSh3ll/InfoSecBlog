@@ -23,19 +23,19 @@ export const configDefault: Config = {
 	navs: [
 		{
 			name: "Posts",
-			href: "/posts/page/1",
+			href: "/InfoSecBlog/posts/page/1",
 		},
 		{
 			name: "Archive",
-			href: "/archive",
+			href: "/InfoSecBlog/archive",
 		},
 		{
 			name: "Categories",
-			href: "/categories",
+			href: "/InfoSecBlog/categories",
 		},
 		{
 			name: "About",
-			href: "/about",
+			href: "/InfoSecBlog/about",
 		},
 	],
 	category_map: [{ name: "胡适", path: "hu-shi" }],
