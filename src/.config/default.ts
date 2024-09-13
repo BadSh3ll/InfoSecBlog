@@ -1,8 +1,8 @@
 import type { Config } from "~/types";
 
 export const configDefault: Config = {
-	title: "活版印字",
-	author: "Typography",
+	title: "InfoSec Blog",
+	author: "Thanh Nguyen",
 	desc: "Rediscory the beauty of typography",
 	website: "https://astro-theme-typography.vercel.app/",
 	locale: "en-us",
@@ -10,19 +10,11 @@ export const configDefault: Config = {
 	socials: [
 		{
 			name: "github",
-			href: "https://github.com/moeyua/astro-theme-typography",
+			href: "https://github.com/BadSh3ll",
 		},
 		{
-			name: "rss",
-			href: "/atom.xml",
-		},
-		{
-			name: "twitter",
-			href: "https://github.com/moeyua/astro-theme-typography",
-		},
-		{
-			name: "mastodon",
-			href: "https://github.com/moeyua/astro-theme-typography",
+			name: "linkedin",
+			href: "https://www.linkedin.com/in/thanh04082002/",
 		},
 	],
 	header: {
@@ -48,8 +40,18 @@ export const configDefault: Config = {
 	],
 	category_map: [{ name: "胡适", path: "hu-shi" }],
 	comments: {
-		disqus: {
-			shortname: "typography-astro",
+		giscus: {
+			repo: "BadSh3ll/InfoSec-Blog",
+			repoId: "MDEwOlJlcG9zaXRvcnkzNjQ2NzIzNzE=",
+			category: "Comments",
+			mapping: "pathname",
+			theme: "light",
+			reactionsEnabled: "1",
+			strict: "1",
+			emitMetadata: "0",
+			inputPosition: "top",
+			lang: "en",
+			loading: "lazy",
 		},
 	},
 };
