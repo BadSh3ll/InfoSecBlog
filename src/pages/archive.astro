@@ -24,7 +24,7 @@ for (const post of posts) {
       Array.from(postByYear.entries()).map(([year, posts]) => (
         <ListSection title={year}>
           {posts.map((post) => (
-            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
+            <ListItem title={post.data.title} href={`/InfoSecBlog/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
           ))}
         </ListSection>
       ))

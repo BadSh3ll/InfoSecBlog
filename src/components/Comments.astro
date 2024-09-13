@@ -12,7 +12,7 @@ interface Props {
 const { id, data, slug } = Astro.props.post;
 const { comments } = config;
 
-const path = `/posts/${slug}`;
+const path = `/InfoSecBlog/posts/${slug}`;
 const url = `${Astro.site?.href}${path}`;
 
 let commentService = "";

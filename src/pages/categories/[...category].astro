@@ -21,6 +21,6 @@ const { name } = Astro.params;
 
 <LayoutDefault>
   <ListSection title={name}>
-    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
+    {posts.map((post) => <ListItem title={post.data.title} href={`/InfoSecBlog/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
   </ListSection>
 </LayoutDefault>

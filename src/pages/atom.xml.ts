@@ -18,7 +18,7 @@ export async function GET(_context: APIContext) {
 		site: website,
 		items: posts.map((post) => {
 			return {
-				link: `/posts/${post.slug}/`,
+				link: `/InfoSecBlog/posts/${post.slug}/`,
 				author: author,
 				content: sanitizeHtml(parser.render(post.body), { allowedTags }),
 				title: post.data.title,
