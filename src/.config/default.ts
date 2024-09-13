@@ -4,7 +4,7 @@ export const configDefault: Config = {
 	title: "InfoSec Blog",
 	author: "Thanh Nguyen",
 	desc: "Rediscory the beauty of typography",
-	website: "https://BadSh3ll.github.io",
+	website: "https://badsh3ll.github.io",
 	locale: "en-us",
 	themeStyle: "light",
 	socials: [
