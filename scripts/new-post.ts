@@ -38,7 +38,7 @@ async function createPost(): Promise<void> {
   pubDate: ${getDate()}
   categories: []
   description: ''
-  ---
+---
   `;
 
 	try {

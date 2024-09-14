@@ -11,11 +11,12 @@ export default defineConfig({
 	base: "InfoSecBlog",
 	prefetch: true,
 	markdown: {
-		shikiConfig: {
-			theme: "one-dark-pro",
-			langs: [],
-			wrap: true,
-		},
+		// shikiConfig: {
+		// 	theme: "nord",
+		// 	langs: [],
+		// 	wrap: true,
+		// },
+		syntaxHighlight: false,
 	},
 	integrations: [
 		UnoCSS({

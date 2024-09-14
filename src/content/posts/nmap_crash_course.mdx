@@ -1,0 +1,69 @@
+---
+  title: You will never ask about NMAP again
+  pubDate: 2024-09-13
+  categories: ['Blog', 'Tools', 'Nmap']
+  description: 'Unlock the full potential of Nmap with this comprehensive guide. From basic scanning techniques to advanced network discovery and security auditing, this post will answer all your Nmap questions and elevate your skills in network reconnaissance.'
+---
+import Section from '../../components/Section.astro'
+import Warning from '../../components/Warning.astro'
+
+<Warning>
+  ⚠️ **Legal Disclaimer**
+
+  This post is for **educational purposes only**.<br />
+  Scanning unauthorized networks or systems without permission is **illegal** and can lead to severe consequences. Always ensure proper authorization before using network scanning tools like Nmap.
+</Warning>
+
+<Section>🔍 **Nmap History and Evolution**</Section>
+
+Nmap made its debut in the **September 1997** issue of *Phrack Magazine*, and since then, it has become a cornerstone in network reconnaissance. Fast-forward to today, and Nmap is still stealing the spotlight as one of the most powerful and versatile tools for network discovery and cybersecurity auditing.
+
+Originally designed as a simple **port scanner**, Nmap blew minds with its ground-breaking techniques for port discovery. Over the years, it has evolved far beyond its humble beginnings, now standing at the heart of a **family of rockstar networking tools**, including **Ncrack**, **Ncat**, **Nping**, and **Zenmap**. Together, these tools form a powerful toolkit that can handle anything from network mapping to vulnerability assessments, solidifying Nmap's place as a go-to solution for professionals in the field.
+
+And the heart of it all, the **Nmap Scripting Engine (NSE)** is a real game changer, handing you the power to script additional tasks using **Lua**. It’s just like having a cyber wizard at your fingertips, enabling users to automate complex network reconnaissance and vulnerability scanning.
+
+
+<Section>⚙️ **Installing Nmap**</Section>
+
+
+Installing Nmap is straightforward, and it supports a wide range of operating systems including Linux, macOS, and Windows. Below are the steps to get Nmap up and running on each platform.
+
+### On Linux
+
+Nmap is available in most Linux distributions' package managers. For example:
+
+#### Ubuntu/Debian:
+
+``` 
+sudo apt update
+sudo apt install nmap
+```
+
+### Fedora:
+
+```
+sudo dnf install nmap
+```
+
+### Arch Linux:
+
+```
+sudo pacman -S nmap
+```
+
+### On macOS
+
+You can install Nmap on macOS using Homebrew:
+
+```bash
+brew install nmap
+```
+
+### On Windows
+
+For Windows, Nmap provides a standalone executable. You can download the latest Windows installer from the [official Nmap download page](https://nmap.org/download.html#windows). Once downloaded, follow the on-screen instructions to complete the installation.
+
+
+<Section>🔍 **Basic Scanning** </Section>
+
+In this section, we’ll cover the essentials of performing basic scans with Nmap. You’ll learn how to use Nmap to discover live hosts, open ports, and basic service information.
