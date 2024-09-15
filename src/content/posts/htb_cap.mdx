@@ -40,7 +40,7 @@ We found that there are 3 open ports:
 
 We can access the port 80 via browser and see that it is a simple security dashboard.
 
-![website](../../assets/cap/image-20210522070007349.webp)
+![website](/InfoSecBlog/cap/image-20210522070007349.webp)
 
 There is a user `nathan` logged in.
 
@@ -48,7 +48,7 @@ Let traverse to other tabs on the side menu and see what we can find.
 
 If we click on `Security Snapshots`, we can see that the website hang for 5 seconds and then redirects to `/data/2 `where it returns information about the network capture.
 
-![data/2](../../assets/cap/image-20210522070209222.webp)
+![data/2](/InfoSecBlog/cap/image-20210522070209222.webp)
 
 Looks like there are no packets captured yet.
 
@@ -56,11 +56,11 @@ But there is a vulnerability here. We can try to change the number in the URL to
 
 If we change the number to 0, we can see that there are atually packets captured.
 
-![data/0](../../assets/cap/pcap.png)
+![data/0](/InfoSecBlog/cap/pcap.png)
 
 We can download the file and analyze it using Wireshark.
 
-![wireshark](../../assets/cap/wireshark.png)
+![wireshark](/InfoSecBlog/cap/wireshark.png)
 
 And there we have it, plaintext credentials for the user `nathan` with the password `Buck3tH4TF0RM3!`.
 We can use these credentials to login to the machine via SSH.
@@ -73,7 +73,7 @@ ssh nathan@10.10.10.245
 ```
 
 
-![nathan](../../assets/cap/nathan.png)
+![nathan](/InfoSecBlog/cap/nathan.png)
 
 ```bash
 nathan@cap:~$ cat user.txt
