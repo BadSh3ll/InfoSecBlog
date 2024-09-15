@@ -1,0 +1,109 @@
+---
+  title: Hackthebox Cap
+  pubDate: 2024-09-15
+  categories: ["Hackthebox", "Machines"]
+  description: "Cap is an easy Linux machine running a HTTP server that performs administrative functions including network captures. Improper controls result in Insecure Direct Object Reference (IDOR) giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root."
+---
+import Section from '../../components/Section.astro'
+
+<img 
+    style="display: block; 
+           margin: 50px auto;
+           width: 30%;"
+    src="https://labs.hackthebox.com/storage/avatars/70ea3357a2d090af11a0953ec8717e90.png" 
+    alt="Our logo">
+</img>
+
+
+Cap is a machine that has 2 simple vulnerabilities that can be exploited to gain access to the machine. Those vulnerabilities are:
+
+- Insecure Direct Object Reference (IDOR): access control vulnerability that arises when an application uses user-supplied input to access objects directly
+
+- Linux capability: a security feature that provides a finer-grained control over the permissions that are available to a process
+
+
+<Section>🔍 **Enumeration**</Section>
+
+### Nmap
+
+```bash
+nmap -sC -sV 10.10.10.245
+```
+
+We found that there are 3 open ports:
+
+- 21 (FTP)
+- 22 (SSH)
+- 80 (HTTP)
+
+<Section> 🕵️‍♂️ **Website**</Section>
+
+We can access the port 80 via browser and see that it is a simple security dashboard.
+
+![website](../../assets/cap/image-20210522070007349.webp)
+
+There is a user `nathan` logged in.
+
+Let traverse to other tabs on the side menu and see what we can find.
+
+If we click on `Security Snapshots`, we can see that the website hang for 5 seconds and then redirects to `/data/2 `where it returns information about the network capture.
+
+![data/2](../../assets/cap/image-20210522070209222.webp)
+
+Looks like there are no packets captured yet.
+
+But there is a vulnerability here. We can try to change the number in the URL to see if we can access other captures.
+
+If we change the number to 0, we can see that there are atually packets captured.
+
+![data/0](../../assets/cap/pcap.png)
+
+We can download the file and analyze it using Wireshark.
+
+![wireshark](../../assets/cap/wireshark.png)
+
+And there we have it, plaintext credentials for the user `nathan` with the password `Buck3tH4TF0RM3!`.
+We can use these credentials to login to the machine via SSH.
+
+<Section>🔐 **Exploitation**</Section>
+
+```bash
+ssh nathan@10.10.10.245 
+
+```
+
+
+![nathan](../../assets/cap/nathan.png)
+
+```bash
+nathan@cap:~$ cat user.txt
+```
+
+<Section>🚀 **Privilege Escalation**</Section>
+
+Let's take a look at the `exploit.py` file.
+
+```python
+import os
+os.setuid(0)
+os.system("/bin/bash")
+```
+
+This script is trying to escalate the privilege to root by setting the user id to 0 and then executing a bash shell.
+
+We can run this script to get a root shell.
+
+```bash
+nathan@cap:~$ python3 exploit.py
+```
+
+```bash
+root@cap:~# cat root.txt
+```
+
+And there we have it, the root flag.
+
+<Section>📝 **Conclusion**</Section>
+
+Cap is a simple machine that demonstrates the importance of proper access control and the use of Linux capabilities. The Insecure Direct Object Reference (IDOR) vulnerability allowed us to access another user's network capture, which contained plaintext credentials. We then leveraged a Linux capability to escalate to root and obtain the root flag.
+
