@@ -1,0 +1,193 @@
+---
+  title: "SY0-701 Chapter 3: Malicious Code"
+  pubDate: 2024-10-02
+  categories: ["Certificates", "Security+"]
+  description: 'In this chapter, you will explore the various types of malware, as well as the distinguishing elements, behaviors, and traits of each malware type.'
+---
+  
+import Section from '../../components/Section.astro'
+
+<Section>**Malware**</Section>
+
+The term **malware** describes a wide range of software that is intentionally designed to cause harm to systems and devices, networks, or users.
+
+### Exam notes:
+
+This objective introduces many types of malware and asks you to analyze potential indicators to determine the type of attack. When you tackle malware-based questions, you will need to know the distinctive characteristics of each type of malware, and what might help you tell them apart.
+
+<Section>**Ransomware**</Section>
+
+**Ransomware** is malware that takes over a computer and then demands a *ransom*. There are many types of ransomware, including *crypto malware*, which encrypts files and then holds them hostage until a ransom is paid. Other ransomware techniques include threatening to report the user to law enforcement due to pirated software or pornography, or threatening to expose sensitive information or pictures from the victim's hard drive or device.
+
+A significant portion of ransomware attacks are driven by *phishing campaigns*, with unsuspecting victims installing malware delivered via *phishing emails* or links in the email.
+
+### Indicators of compromise (IoCs) for ransomware:
+
+- *Command and Control* (C&C) traffic
+
+- Use of legitimate tools in abnormal ways to retain control of the compromised system
+
+- *Lateral movement* processes that seek to attack or gain information about other systems or devices inside the same trust boundaries
+
+- Encryption of files.
+
+- Notices to end users of the encryption process with demands for ransom.
+
+- *Data exfiltration* behaviors, including large file transfers.
+
+
+*One of the most important defenses against ransomware is an effective backup system that stores files in a separate location that will not be impacted*
+
+<Section>**Trojans**</Section>
+
+**Trojans**, or *Trojan horses*, are a type of malware that is typically disguised as legitimate software. They are called Trojan horses because they rely on unsuspecting individuals running them, thus providing attackers with a path into a system or device
+
+
+### Indicators of compromise for Trojans often include:
+
+- *Signatures* for the specific malware applications or downloadable files.
+
+- *Command and control* system hostnames and IP addresses.
+
+- Folders or files created on target devices.
+
+*Mitigation practices for Trojans typically starts with awareness practices that help ensure that downloading and running Trojans are less likely*
+
+*Anti-malware, EDR, and other tools used to identify and stop malicious software from running or which can discover it based on behavior and stop it are also commonly used as a final line of defense.*
+
+<Section>**Worms**</Section>
+
+Unlike Trojans that require user interaction, *worms spread themselves*. 
+
+While worms are often associated with spreading via attacks on vulnerable services, any type of spread via automated means is possible, meaning that worms can spread via email attachments, network file shares, vulnerable devices like IoT (Internet of Things) and phones, or other methods as well. 
+
+*Worms also self-install*, rather than requiring users to click on them, making them quite dangerous.
+
+### Common IoCs for worms like Raspberry Robin include:
+
+- Known malicious files.
+
+- Downloads of additional components from remote systems.
+
+- Command and control contact to remote systems.
+
+- Malicious behaviors using system commands for injection and other activities, including use of cmd.exe, msiexec.exe, and others.
+
+- Hands-on-keyboard attacker activity.
+
+Mitigating worm infections frequently starts with *effective network-level controls* focused on preventing infection traffic. 
+
+*Firewalls, IPS devices, network segmentation, and similar controls* are the first layer of defense. 
+
+*Patching and configuring services* to limit attack surfaces is also a best practice for preventing worms. 
+
+After an infection responses may include use of *antimalware, EDR, and similar tools* to stop and potentially remove infections. 
+
+Depending on the complexity of the malware, removal may be *nearly impossible*, and as with many types of malware reinstallation or resetting to original firmware may be required for some devices.
+
+<Section>**Spyware**</Section>
+
+Spyware is malware that is designed to *obtain information about an individual, organization, or system*. 
+
+Various types of spyware exist, with different types of information targeted by each. Many spyware packages track users' browsing habits, installed software, or similar information and report it back to central servers. 
+
+Some spyware is relatively innocuous, but malicious spyware exists that targets sensitive data, allows remote access to web cameras, or otherwise provides illicit or undesirable access to the systems it is installed on. 
+
+Spyware is associated with *identity theft and fraud*, advertising and redirection of traffic, digital rights management (DRM) monitoring, and with stalkerware, a type of spyware used to illicitly monitor partners in relationships.
+
+### Common examples of spyware IoCs include:
+
+
+- Remote-access and remote-control-related indicators.
+
+- Known software file fingerprints.
+
+- Malicious processes, often disguised as system processes.
+
+- Injection attacks against browsers.
+
+Mitigation practices for spyware focus on awareness, control of the software that is allowed on devices and systems, and antispyware capabilities built into antimalware tools. 
+
+Since spyware is generally perceived as less of a threat than many types of malware, it is commonly categorized separately and may require specific configuration to identify and remove it.
+
+<Section>**Bloatware**</Section>
+
+The term **bloatware** is an all-encompassing term used to describe *unwanted applications installed* on systems by manufacturers.
+
+Unlike the other malicious software categories listed in this chapter, bloatware isn't usually intentionally malicious. 
+
+It may, however, be poorly written, may call home with information about your system or usage, or may prove to be vulnerable to exploitation, adding another attack surface to otherwise secure devices. Uninstalling bloatware or using a clean operating system image are common practices for organizations as well as individuals.
+
+Since bloatware isn't really malicious software, it isn't typically associated with IoCs. Instead it should simply be removed to prevent issues—including simply taking up disk space, memory, and CPU cycles without providing any benefit. 
+
+Mitigation techniques for bloatware focus on awareness and uninstallation or removal of the software.
+
+
+<Section>**Viruses**</Section>
+
+Computer viruses are malicious programs that **self-copy** and **self-replicate** once they are activated. 
+
+Unlike worms, they don't spread themselves via vulnerable services and networks. Viruses require one or more infection mechanisms that they use to spread themselves, like copying to a thumb drive or network share, and that mechanism is typically paired with some form of search capability to find new places to spread to once they are run. 
+
+Viruses also typically have both a *trigger*, which sets the conditions for when the virus will execute, and a *payload*, which is what the virus does, delivers, or the actions it performs. 
+
+Viruses come in many varieties, including:
+
+- **Memory-resident viruses**, which remain in memory while the system of the device is running
+
+- **Non-memory-resident viruses**, which execute, spread, and then shut down
+
+- **Boot sector viruses**, which reside inside the boot sector of a drive or storage media.
+
+- **Macro viruses**, which use macros or code inside word processing software or other tools to spread.
+
+- **Email viruses** that spread via email either as email attachments or as part of the email itself using flaws inside email clients.
+
+<Section>**Keyloggers**</Section>
+
+Keyloggers are programs that capture keystrokes from a keyboard, although keylogger applications may also capture other input such as mouse movement, touchscreen inputs, or credit card swipes from attached devices.
+
+### IoCs related to keyloggers are commonly:
+
+- File hashes and signatures
+
+- Exfiltration activity to command and control systems
+
+- Process names
+
+- Known reference URLs
+
+
+<Section>**Logic Boom**</Section>
+
+**Logic bombs**, unlike the other types of malware described here, are not independent malicious programs. Instead, they are *functions or code placed inside other programs that will activate when set conditions are met*.
+
+Since logic bombs are found in code, IoCs for logic bombs are less common—they require analysis of the code or logic in the application, meaning that mitigation processes are also primarily focused on code review.
+
+<Section>**Rootkit**</Section>
+
+Rootkits are malware that is specifically designed to allow attackers to access a system through a **backdoor**
+
+Rootkit detection can be challenging, because a system infected with malware like this cannot be trusted. That means that the best way to detect a rootkit is to test the suspected system from a trusted system or device. In cases where that isn't possible, rootkit detection tools look for behaviors and signatures that are typical of rootkits. Techniques like integrity checking and data validation against expected responses can also be useful for rootkit detection, and anti-rootkit tools often use a combination of these techniques to detect complex rootkits.
+
+Once a rootkit is discovered, removal can be challenging. While some antimalware and anti-rootkit tools are able to remove specific rootkits, the most common recommendation whenever possible is to rebuild the system or to restore it from a known good backup. As virtual machines, containers, system imaging, and software-defined environments have become more common, this has simplified restoration processes, and in many cases may be as fast, or faster than ensuring that a system infected with a rootkit has been properly and fully cleaned.
+
+### Common IoCs for rootkits include:
+
+
+- File hashes and signatures.
+
+- Command and control domains, IP addresses, and systems.
+
+- Behavior-based identification like the creation of services, executables, configuration changes, file access, and command invocation.
+
+- Opening ports or creation of reverse proxy tunnels.
+
+
+
+Excerpt From
+
+CompTIA Security+ Study Guide with over 500 Practice Test Questions
+Mike Chapple
+
+This material may be protected by copyright.
